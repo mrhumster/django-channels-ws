@@ -1,0 +1,20 @@
+@startuml
+allow_mixing
+left to right direction
+agent Headers [
+    HTTP/1.1 101 Switching Protocols
+    Upgrade: websocket
+    Connection: Upgrade
+    Sec-WebSocket-Version: 13
+    Sec-WebSocket-Accept: asdsa389dj3283227==
+]
+
+database Client
+cloud Server
+
+Client --> Server: Request
+Client <-[#green]- Server: Handshake
+Client <--> Server: WebSocket
+
+
+@enduml

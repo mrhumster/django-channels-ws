@@ -1,0 +1,7 @@
+@startuml
+Client -[#orange]-> Server: Initial HTTP
+Client <-[#orange]- Server: handshake
+Client <-[#green]-> Server: WebSocket
+... full-duplex persistent ...
+Client X--X Server: Close
+@enduml

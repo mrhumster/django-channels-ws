@@ -1,0 +1,11 @@
+@startuml
+allow_mixing
+
+database Client
+cloud Server
+
+Client -> Server: Request
+Client <- Server: Handshake
+Client <-> Server: WebSocket
+
+@enduml

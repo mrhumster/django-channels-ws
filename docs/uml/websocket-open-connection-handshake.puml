@@ -1,0 +1,23 @@
+@startuml
+allow_mixing
+left to right direction
+agent Headers [
+    GET ws://example.com:8181/HTTP/1.1
+    Host:localhost:8181
+    Connection: Upgrade
+    Pragma: no-cache
+    Cache-Control: no-cache
+    Upgrade: websocket
+    Sec-WebSocket-Version: 13
+    Sec-WebSocket-Key: oewiruop89732lkjhs897==
+]
+
+database Client
+cloud Server
+
+Client -[#green]-> Server: Request
+Client <-- Server: Handshake
+Client <--> Server: WebSocket
+
+
+@enduml

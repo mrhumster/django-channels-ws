@@ -1,0 +1,19 @@
+@startuml
+allow_mixing
+left to right direction
+agent Client [
+    Client
+]
+agent Server [
+    Web Server
+]
+database Storage [
+    File Location
+]
+Client --> Server: HTTP Request
+Client <-- Server: HTTP Response
+
+Server --> Storage
+Server <-- Storage
+
+@enduml
