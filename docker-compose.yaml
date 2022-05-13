@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  redis:
+    image: redis
+    command: redis-server
+    ports:
+      - "6379:6379"
+  channels:
+    build: .
+    command: daphne -b 0.0.0.0 -p 8001 wschat.asgi:application
+    ports:
+      - "8001:8001"
+    links:
+      - redis
