@@ -303,11 +303,20 @@ WSGI, в асинхронном Python. С ASGI вы можете выполня
 
 ## Install 
 
+### с использованием Docker
+
 ```shell
 git clone https://github.com/mrhumster/django-channels-ws.git
 cd django-channels-ws
-python -m venv env
-pip -r install requremnents.txt
-docker run -p 6379:6379 -d redis:5
-python manage.py runserver
+docker compose up -d --remove-orphans
 ```
+* -d - запуск в режиме демона;
+* --remove-orphans - удалить контейнеры после остановки;
+
+Сервер будет доступен по адресу http://127.0.0.1:8001/chat
+
+Для остановки сервиса
+```shell
+docker compose down
+```
+
